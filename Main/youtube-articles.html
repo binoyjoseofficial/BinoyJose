@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos - Binoy Jose</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: #0d0d0d;
+        }
+
+        header {
+            background: #1a1a1a;
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 86, 179, 0.1);
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #0056b3, #4a7c9e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            color: #4a7c9e;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #1a0f2e 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .hero h1 {
+            font-size: 44px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #0056b3, #1e40af, #4a7c9e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            color: #b0b0b0;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        section h2 {
+            font-size: 36px;
+            margin-bottom: 50px;
+            text-align: center;
+            color: white;
+            font-weight: 700;
+        }
+
+        .channel-info {
+            text-align: center;
+            background: #1a1a1a;
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid #2a2a2a;
+            margin-bottom: 60px;
+        }
+
+        .channel-info h3 {
+            font-size: 24px;
+            color: #0056b3;
+            margin-bottom: 15px;
+        }
+
+        .channel-info p {
+            color: #b0b0b0;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .channel-button {
+            display: inline-block;
+            padding: 14px 32px;
+            background: linear-gradient(135deg, #0056b3, #0056b3);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s;
+            margin: 10px;
+        }
+
+        .channel-button:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 86, 179, 0.3);
+        }
+
+        .video-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .category-card {
+            background: #1a1a1a;
+            border-radius: 8px;
+            padding: 30px;
+            border: 1px solid #2a2a2a;
+            transition: all 0.3s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            border-color: #0056b3;
+            box-shadow: 0 8px 24px rgba(0, 86, 179, 0.15);
+        }
+
+        .category-card h3 {
+            font-size: 20px;
+            color: #4a7c9e;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .category-card p {
+            color: #b0b0b0;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .video-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #0056b3, #0056b3);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s;
+        }
+
+        .video-link:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #1a3a52 0%, #2d1b4e 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        .cta-section h2 {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .social-link {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            padding: 12px 24px;
+            border-radius: 4px;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .social-link:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: #0d0d0d;
+            color: #808080;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 14px;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        footer a {
+            color: #4a7c9e;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="logo">Binoy Jose</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="linkedin-articles.html">Articles</a></li>
+                <li><a href="youtube-articles.html">Videos</a></li>
+                <li><a href="protocols.html">Protocols</a></li>
+                <li><a href="applications.html">Applications</a></li>
+                <li><a href="tools.html">Technologies</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Videos</h1>
+            <p>Video content on AI agents, technology trends, blockchain innovation, and building the future</p>
+        </div>
+    </section>
+
+    <!-- Channel Info -->
+    <section>
+        <div class="channel-info">
+            <h3>Enterprise AI Agents Channel</h3>
+            <p>Comprehensive video content exploring autonomous systems, agent orchestration, AI architecture, and enterprise technology innovation.</p>
+            <p style="color: #999; font-size: 14px;">Subscribe for latest videos on AI agents, protocols, blockchain, and technical deep dives.</p>
+            <a href="https://www.youtube.com/@EnterpriseAiAgents" class="channel-button" target="_blank">Subscribe on YouTube</a>
+            <a href="https://www.youtube.com/@EnterpriseAiAgents" class="channel-button" target="_blank">View Channel</a>
+        </div>
+    </section>
+
+    <!-- Featured Videos -->
+    <section>
+        <h2>Featured Videos</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; margin-top: 40px;">
+            <div style="border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/HE9svlFlG0M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <div style="border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/6wqXIzmwPnc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <div style="border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/7BtBskdvwpk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <div style="border-radius: 8px; overflow: hidden; aspect-ratio: 16/9; box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/UU03sov_Ce0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Categories -->
+    <section>
+        <h2>Video Content Categories</h2>
+        <div class="video-categories">
+            <div class="category-card">
+                <h3>AI Agents & Orchestration</h3>
+                <p>Deep dives into building autonomous agents, multi-agent systems, orchestration frameworks, and intelligent automation.</p>
+                <a href="https://www.youtube.com/@EnterpriseAiAgents" class="video-link" target="_blank">Watch Videos</a>
+            </div>
+
+            <div class="category-card">
+                <h3>Blockchain & Web3</h3>
+                <p>Videos on decentralized identity, smart contracts, DeFi, DAOs, and blockchain technology innovation.</p>
+                <a href="https://www.youtube.com/@EnterpriseAiAgents" class="video-link" target="_blank">Watch Videos</a>
+            </div>
+
+            <div class="category-card">
+                <h3>Protocol Design</h3>
+                <p>Technical exploration of ANCP, OperateDID, Certen.io, and other protocol architectures.</p>
+                <a href="https://www.youtube.com/@EnterpriseAiAgents" class="video-link" target="_blank">Watch Videos</a>
+            </div>
+
+            <div class="category-card">
+                <h3>Enterprise Architecture</h3>
+                <p>System design, cloud infrastructure, microservices, and large-scale distributed systems.</p>
+                <a href="https://www.youtube.com/@EnterpriseAiAgents" class="video-link" target="_blank">Watch Videos</a>
+            </div>
+
+            <div class="category-card">
+                <h3>FinTech & Payments</h3>
+                <p>Financial technology, payment systems, settlement infrastructure, and fintech innovation.</p>
+                <a href="https://www.youtube.com/@EnterpriseAiAgents" class="video-link" target="_blank">Watch Videos</a>
+            </div>
+
+            <div class="category-card">
+                <h3>Technology Trends</h3>
+                <p>Latest trends in AI, blockchain, cloud computing, and enterprise technology landscape.</p>
+                <a href="https://www.youtube.com/@EnterpriseAiAgents" class="video-link" target="_blank">Watch Videos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Stay Updated</h2>
+        <p>Subscribe to the YouTube channel for the latest videos on AI, technology, and innovation.</p>
+        <div class="social-links">
+            <a href="https://www.youtube.com/@EnterpriseAiAgents" class="social-link" target="_blank">Subscribe on YouTube</a>
+            <a href="index.html" class="social-link">Back to Home</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Binoy Jose. Architect and thought leader. | <a href="https://www.youtube.com/@EnterpriseAiAgents">YouTube</a></p>
+    </footer>
+</body>
+</html>

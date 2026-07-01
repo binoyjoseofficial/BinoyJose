@@ -3,143 +3,729 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Binoy Jose - Software Developer & AI Enthusiast">
-    <title>Binoy Jose - Developer Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Binoy Jose - AI Agents & Autonomous Systems</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: #0d0d0d;
+        }
+
+        header {
+            background: #1a1a1a;
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 86, 179, 0.1);
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #0056b3, #4a7c9e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            color: #4a7c9e;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #1a0f2e 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #0056b3, #1e40af, #4a7c9e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+            line-height: 1.8;
+            color: #b0b0b0;
+        }
+
+        .hero-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .tag {
+            background: rgba(0, 86, 179, 0.1);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            border: 1px solid #0056b3;
+            color: #0056b3;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        section h2 {
+            font-size: 36px;
+            margin-bottom: 50px;
+            text-align: center;
+            color: white;
+            font-weight: 700;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .expertise-item {
+            background: #1a1a1a;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 16px rgba(0, 86, 179, 0.05);
+            border: 1px solid #2a2a2a;
+            transition: all 0.3s;
+        }
+
+        .expertise-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 86, 179, 0.15);
+            border-color: #0056b3;
+        }
+
+        .icon-wrapper {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .expertise-item h4 {
+            margin-bottom: 12px;
+            color: #4a7c9e;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .expertise-item p {
+            font-size: 14px;
+            color: #b0b0b0;
+            line-height: 1.6;
+        }
+
+        .youtube-section {
+            background: #1a1a1a;
+            padding: 60px 20px;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .youtube-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .youtube-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .youtube-embed {
+            aspect-ratio: 16 / 9;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .youtube-embed iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .channel-link {
+            display: inline-block;
+            margin-top: 40px;
+            background: linear-gradient(135deg, #0056b3, #8000ff);
+            color: white;
+            padding: 12px 28px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .channel-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 86, 179, 0.3);
+        }
+
+        .articles-section {
+            background: #0d0d0d;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .article-card {
+            background: #1a1a1a;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 16px rgba(0, 86, 179, 0.05);
+            border: 1px solid #2a2a2a;
+            transition: all 0.3s;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 86, 179, 0.15);
+            border-color: #0056b3;
+        }
+
+        .article-card h4 {
+            margin-bottom: 12px;
+            color: #4a7c9e;
+            font-weight: 700;
+        }
+
+        .article-card p {
+            font-size: 14px;
+            color: #b0b0b0;
+            margin-bottom: 20px;
+        }
+
+        .article-link {
+            color: #1e40af;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .article-link:hover {
+            color: #0056b3;
+        }
+
+        .products-section {
+            background: #1a1a1a;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .product-card {
+            background: #2a2a2a;
+            padding: 30px 20px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #333;
+            transition: all 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(0, 86, 179, 0.1);
+            border-color: #0056b3;
+        }
+
+        .product-card h4 {
+            margin: 15px 0 10px 0;
+            color: #4a7c9e;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .product-card p {
+            font-size: 13px;
+            color: #b0b0b0;
+            margin-bottom: 15px;
+        }
+
+        .product-link {
+            display: inline-block;
+            color: #1e40af;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .product-link:hover {
+            color: #0056b3;
+        }
+
+        .featured-product {
+            background: linear-gradient(135deg, #1a3a52, #2d1b4e);
+            color: white;
+            grid-column: span 1;
+            padding: 40px 30px;
+        }
+
+        .featured-product h4 {
+            color: white;
+            margin-top: 0;
+        }
+
+        .featured-product p {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .featured-product .product-link {
+            color: #1e40af;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #1a3a52 0%, #2d1b4e 100%);
+            color: white;
+            text-align: center;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        .contact-section h2 {
+            color: white;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-content p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            padding: 12px 24px;
+            border-radius: 4px;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .social-link:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: #0d0d0d;
+            color: #808080;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 14px;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        footer a {
+            color: #4a7c9e;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+
+            section h2 {
+                font-size: 28px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
+    <!-- Navigation -->
+    <header>
+        <nav>
             <div class="logo">Binoy Jose</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="linkedin-articles.html">Articles</a></li>
+                <li><a href="youtube-articles.html">Videos</a></li>
+                <li><a href="protocols.html">Protocols</a></li>
+                <li><a href="applications.html">Applications</a></li>
+                <li><a href="tools.html">Technologies</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-        </div>
-    </nav>
+        </nav>
+    </header>
 
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Hi, I'm Binoy Jose</h1>
-                <p class="subtitle">Software Developer | AI & ML Enthusiast | Full-Stack Engineer</p>
-                <div class="cta-buttons">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>AI & Autonomous Agents</h1>
+            <p>Architect of autonomous agent systems and agentic orchestration platforms. 26 years building intelligent systems at scale—from LLM integration to multi-agent coordination frameworks that drive enterprise automation and innovation.</p>
+            <div class="hero-tags">
+                <span class="tag">AI Agents</span>
+                <span class="tag">Agentic Orchestration</span>
+                <span class="tag">AI Identity</span>
+                <span class="tag">Autonomous Systems</span>
+                <span class="tag">RAG & Knowledge Systems</span>
+                <span class="tag">Enterprise AI</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Autonomous Agents & AI Architecture</h3>
+                <p>I architect autonomous agent systems and orchestration platforms that enable intelligent automation at enterprise scale. My expertise spans LLM integration, multi-agent coordination, agent identity management, and building AI platforms that think and act independently.</p>
+                <p>With 26 years in technology leadership, I've evolved from hands-on software development through solutions architecture to executive roles managing $50M+ portfolios and 600+ teams. Today, I focus exclusively on <strong>agentic AI</strong>—designing the frameworks, protocols, and infrastructure that power the next generation of autonomous systems.</p>
+                <p>I've architected ANCP (Agent Communication Protocol), OperateDID (AI Identity), and built 20+ AI and blockchain products. Certified by Microsoft and Oracle. Currently leading Gen 3 Agentic Platform development.</p>
+            </div>
+            <div class="expertise-grid">
+                <div class="expertise-item">
+                    <div class="icon-wrapper">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="16" cy="16" r="14" stroke="#4a7c9e" stroke-width="2"/>
+                            <path d="M16 8v8l5.5 3" stroke="#0056b3" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h4>AI & Agents</h4>
+                    <p>Autonomous agents, LLM integration, agentic orchestration, agent identity</p>
+                </div>
+                <div class="expertise-item">
+                    <div class="icon-wrapper">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="4" y="6" width="24" height="20" rx="2" stroke="#4a7c9e" stroke-width="2"/>
+                            <line x1="8" y1="14" x2="24" y2="14" stroke="#0056b3" stroke-width="1.5"/>
+                            <line x1="8" y1="20" x2="20" y2="20" stroke="#0056b3" stroke-width="1.5"/>
+                        </svg>
+                    </div>
+                    <h4>Enterprise Architecture</h4>
+                    <p>Enterprise AI systems, P&L management, technical leadership, delivery at scale</p>
+                </div>
+                <div class="expertise-item">
+                    <div class="icon-wrapper">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="6" y="10" width="20" height="14" rx="1" stroke="#4a7c9e" stroke-width="2"/>
+                            <path d="M10 10V8c0-1.1.9-2 2-2h8c1.1 0 2 .9 2 2v2" stroke="#0056b3" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h4>Cloud & Infrastructure</h4>
+                    <p>Azure, AWS, Kubernetes, microservices, AI platform infrastructure</p>
+                </div>
+                <div class="expertise-item">
+                    <div class="icon-wrapper">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="16" cy="12" r="4" stroke="#1e40af" stroke-width="2"/>
+                            <path d="M8 26c0-4.4 3.6-8 8-8s8 3.6 8 8" stroke="#1e40af" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h4>Product & Strategy</h4>
+                    <p>AI product development, go-to-market, SaaS models, business innovation</p>
+                </div>
+                <div class="expertise-item">
+                    <div class="icon-wrapper">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="6" y="8" width="20" height="16" rx="1" stroke="#1e40af" stroke-width="2"/>
+                            <path d="M10 16h3v4h-3zM16 14h3v6h-3zM22 12h2v8h-2z" fill="#1e40af"/>
+                        </svg>
+                    </div>
+                    <h4>FinTech & Payments</h4>
+                    <p>Payment systems, DeFi protocols, compliance, KYC/AML automation</p>
+                </div>
+                <div class="expertise-item">
+                    <div class="icon-wrapper">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 2L4 10v12c0 7 12 8 12 8s12-1 12-8V10l-12-8z" stroke="#1e40af" stroke-width="2" fill="none"/>
+                            <circle cx="16" cy="16" r="2" fill="#1e40af"/>
+                        </svg>
+                    </div>
+                    <h4>Blockchain & Web3</h4>
+                    <p>DeFi, DAO, smart contracts, decentralized identity, IPFS</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="about" class="about">
-        <div class="container">
-            <h2>About Me</h2>
-            <p>I'm a passionate developer with expertise in building scalable applications and exploring AI/ML solutions. I love creating elegant solutions to complex problems and continuously learning new technologies.</p>
-            <div class="about-grid">
-                <div class="about-card">
-                    <h3>🚀 Development</h3>
-                    <p>Full-stack web development with modern frameworks and tools</p>
-                </div>
-                <div class="about-card">
-                    <h3>🤖 AI & ML</h3>
-                    <p>Exploring artificial intelligence and machine learning applications</p>
-                </div>
-                <div class="about-card">
-                    <h3>💡 Problem Solving</h3>
-                    <p>Creative approaches to technical challenges and system design</p>
-                </div>
+    <!-- Thought Leadership Section -->
+    <section id="content" class="articles-section">
+        <h2>Thought Leadership</h2>
+        <p style="text-align: center; color: #b0b0b0; margin-bottom: 40px; font-size: 16px;">156+ articles and featured videos on AI, agents, architecture, and innovation</p>
+
+        <div class="articles-grid">
+            <!-- Box 1: Articles Navigation -->
+            <div class="article-card" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; min-height: 300px; cursor: pointer;" onclick="location.href='linkedin-articles.html';">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 20px; color: #0a66c2;">
+                    <path d="M8 6H40C42.2091 6 44 7.79086 44 10V38C44 40.2091 42.2091 42 40 42H8C5.79086 42 4 40.2091 4 38V10C4 7.79086 5.79086 6 8 6Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12 14H36M12 22H36M12 30H28" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h4 style="font-size: 24px; margin-bottom: 15px;">Articles</h4>
+                <p style="margin-bottom: 20px; text-align: center;">156+ published thought leadership articles on AI agents, agentic architecture, blockchain, and enterprise technology</p>
+                <a href="linkedin-articles.html" class="article-link">Browse Articles →</a>
+            </div>
+
+            <!-- Box 2: Videos Navigation -->
+            <div class="article-card" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; min-height: 300px; cursor: pointer;" onclick="location.href='youtube-articles.html';">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 20px; color: #ff0000;">
+                    <path d="M6 8C6 6.89543 6.89543 6 8 6H40C41.1046 6 42 6.89543 42 8V40C42 41.1046 41.1046 42 40 42H8C6.89543 42 6 41.1046 6 40V8Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M19 28L29 22L19 16V28Z" fill="currentColor"/>
+                </svg>
+                <h4 style="font-size: 24px; margin-bottom: 15px;">Videos</h4>
+                <p style="margin-bottom: 20px;">Featured video content on autonomous systems, protocol design, AI orchestration, and enterprise architecture</p>
+                <a href="youtube-articles.html" class="article-link">Watch Videos →</a>
+            </div>
+
+            <!-- Box 3: Featured Video 1 -->
+            <div class="article-card" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; min-height: 300px;">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 20px; color: #4a7c9e;">
+                    <path d="M6 10C6 8.89543 6.89543 8 8 8H40C41.1046 8 42 8.89543 42 10V28C42 29.1046 41.1046 30 40 30H8C6.89543 30 6 29.1046 6 28V10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10 38H38" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 42H34" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h4 style="font-size: 18px; margin-bottom: 15px;">Featured Video</h4>
+                <p style="margin-bottom: 20px; color: #b0b0b0;">AI Agent Architecture & Orchestration</p>
+                <a href="https://www.youtube.com/watch?v=HE9svlFlG0M" target="_blank" class="article-link">Watch on YouTube →</a>
+            </div>
+
+            <!-- Box 4: Featured Video 2 -->
+            <div class="article-card" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; min-height: 300px;">
+                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-bottom: 20px; color: #4a7c9e;">
+                    <path d="M6 10C6 8.89543 6.89543 8 8 8H40C41.1046 8 42 8.89543 42 10V28C42 29.1046 41.1046 30 40 30H8C6.89543 30 6 29.1046 6 28V10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M10 38H38" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M14 42H34" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <h4 style="font-size: 18px; margin-bottom: 15px;">Featured Video</h4>
+                <p style="margin-bottom: 20px; color: #b0b0b0;">Building Autonomous Systems</p>
+                <a href="https://www.youtube.com/watch?v=6wqXIzmwPnc" target="_blank" class="article-link">Watch on YouTube →</a>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <h3>BizFirst Payroll V3</h3>
-                    <p>A comprehensive payroll management system with advanced features and integrations.</p>
-                    <a href="#" class="project-link">Learn More →</a>
-                </div>
-                <div class="project-card">
-                    <h3>AI Agent Framework</h3>
-                    <p>Building intelligent agents and automation systems for various use cases.</p>
-                    <a href="#" class="project-link">Learn More →</a>
-                </div>
-                <div class="project-card">
-                    <h3>Portfolio Website</h3>
-                    <p>This website - A modern, responsive portfolio built with pure HTML/CSS/JS.</p>
-                    <a href="https://github.com/binoyjoseofficial/BinoyJose" class="project-link">View on GitHub →</a>
-                </div>
+    <!-- Products Section -->
+    <section id="products" class="products-section">
+        <h2>Project Experiences</h2>
+        <p style="text-align: center; color: #666; margin-bottom: 40px; font-size: 16px;">20+ products built across AI, FinTech, blockchain, and decentralized systems</p>
+
+        <div class="products-grid">
+            <div class="product-card featured-product">
+                <h4>ancp.bizfirstAi.com</h4>
+                <p><strong>Featured Delivery</strong></p>
+                <p>Advanced agentic platform for business automation and AI orchestration</p>
+                <a href="https://ancp.bizfirstAi.com" class="product-link" target="_blank">Explore →</a>
+            </div>
+
+            <div class="product-card">
+                <h4>BizFirstAi.com</h4>
+                <p>Gen 3 Agentic Platform—autonomous agents at scale</p>
+                <a href="https://BizFirstAi.com" class="product-link" target="_blank">Visit →</a>
+            </div>
+
+            <div class="product-card">
+                <h4>Qoboto.com</h4>
+                <p>Social platform where you own your data and control your identity</p>
+                <a href="https://Qoboto.com" class="product-link" target="_blank">Visit →</a>
+            </div>
+
+            <div class="product-card">
+                <h4>OperateID.com</h4>
+                <p>Identity with built-in software capabilities and control</p>
+                <a href="https://OperateID.com" class="product-link" target="_blank">Visit →</a>
+            </div>
+
+            <div class="product-card">
+                <h4>OperateDID.com</h4>
+                <p>Decentralized identity, registry, and issuance infrastructure</p>
+                <a href="https://OperateDID.com" class="product-link" target="_blank">Visit →</a>
+            </div>
+
+            <div class="product-card">
+                <h4>OperateDAO.com</h4>
+                <p>Decentralized organizations and marketplace infrastructure</p>
+                <a href="https://OperateDAO.com" class="product-link" target="_blank">Visit →</a>
+            </div>
+
+            <div class="product-card">
+                <h4>OperateCrypto.com</h4>
+                <p>Web3 operating system and secure vault infrastructure</p>
+                <a href="https://OperateCrypto.com" class="product-link" target="_blank">Visit →</a>
+            </div>
+
+            <div class="product-card">
+                <h4>BizFirstFi.com</h4>
+                <p>FinTech products and payment infrastructure</p>
+                <a href="https://BizFirstFi.com" class="product-link" target="_blank">Visit →</a>
+            </div>
+
+            <div class="product-card">
+                <h4>BankOnLedger.com</h4>
+                <p>Personal banking under your full control</p>
+                <a href="https://BankOnLedger.com" class="product-link" target="_blank">Visit →</a>
+            </div>
+
+            <div class="product-card">
+                <h4>LedgerDocument.com</h4>
+                <p>DocuSign alternative where you own data and system</p>
+                <a href="https://LedgerDocument.com" class="product-link" target="_blank">Visit →</a>
+            </div>
+
+            <div class="product-card">
+                <h4>KycOnChain.com</h4>
+                <p>Know Your Customer/Business/Agent on blockchain</p>
+                <a href="https://KycOnChain.com" class="product-link" target="_blank">Visit →</a>
+            </div>
+
+            <div class="product-card">
+                <h4>AmlOnChain.com</h4>
+                <p>Anti-Money Laundering certificate issuance</p>
+                <a href="https://AmlOnChain.com" class="product-link" target="_blank">Visit →</a>
             </div>
         </div>
     </section>
 
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2>Skills & Technologies</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h4>Languages</h4>
-                    <ul>
-                        <li>Python</li>
-                        <li>JavaScript</li>
-                        <li>Go</li>
-                        <li>SQL</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h4>Frontend</h4>
-                    <ul>
-                        <li>React</li>
-                        <li>HTML/CSS</li>
-                        <li>Responsive Design</li>
-                        <li>Web APIs</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h4>Backend</h4>
-                    <ul>
-                        <li>Node.js</li>
-                        <li>REST APIs</li>
-                        <li>Database Design</li>
-                        <li>System Architecture</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h4>AI & Tools</h4>
-                    <ul>
-                        <li>Machine Learning</li>
-                        <li>AI Integration</li>
-                        <li>Git & DevOps</li>
-                        <li>Cloud Platforms</li>
-                    </ul>
-                </div>
-            </div>
+    <!-- Video Content Section -->
+    <section id="videos" class="youtube-section">
+        <div class="youtube-container">
+            <h2>Video Content</h2>
+            <p style="text-align: center; color: #b0b0b0; margin-bottom: 40px; font-size: 16px;">Deep dives on AI agents, agentic orchestration, protocols, and enterprise technology</p>
+            <p style="text-align: center; margin-bottom: 40px;">
+                <a href="youtube-articles.html" class="channel-link" target="_blank">→ Watch Videos</a>
+            </p>
         </div>
     </section>
 
-    <section id="contact" class="contact">
-        <div class="container">
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="contact-content">
             <h2>Let's Connect</h2>
-            <p>I'm always interested in new projects and opportunities.</p>
-            <div class="contact-links">
-                <a href="mailto:binoyjosebizfirstai@gmail.com" class="contact-link">Email</a>
-                <a href="https://github.com/binoyjoseofficial" class="contact-link">GitHub</a>
-                <a href="https://linkedin.com" class="contact-link">LinkedIn</a>
+            <p>Let's connect.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/binoy-jose/" class="social-link" target="_blank">LinkedIn</a>
+                <a href="https://www.youtube.com/@EnterpriseAiAgents" class="social-link" target="_blank">YouTube</a>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer>
-        <div class="container">
-            <p>&copy; 2026 Binoy Jose. All rights reserved. | <a href="https://github.com/binoyjoseofficial/BinoyJose">View Source</a></p>
-        </div>
+        <p>&copy; 2026 Binoy Jose. Architect, builder, and explorer of autonomous systems.</p>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>

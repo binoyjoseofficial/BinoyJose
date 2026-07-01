@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles - Binoy Jose</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: #0d0d0d;
+        }
+
+        header {
+            background: #1a1a1a;
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 86, 179, 0.1);
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #0056b3, #4a7c9e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: #e0e0e0;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        nav a:hover {
+            color: #4a7c9e;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #1a0f2e 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom: 1px solid #2a2a2a;
+        }
+
+        .hero h1 {
+            font-size: 44px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #0056b3, #1e40af, #4a7c9e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            color: #b0b0b0;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        section h2 {
+            font-size: 36px;
+            margin-bottom: 50px;
+            text-align: center;
+            color: white;
+            font-weight: 700;
+        }
+
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .article-card {
+            background: #1a1a1a;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 16px rgba(0, 86, 179, 0.05);
+            border: 1px solid #2a2a2a;
+            transition: all 0.3s;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 86, 179, 0.15);
+            border-color: #0056b3;
+        }
+
+        .article-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .linkedin-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #0a66c2, #0052a3);
+            border-radius: 4px;
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(10, 102, 194, 0.3);
+        }
+
+        .linkedin-icon {
+            font-size: 20px;
+            color: #0a66c2;
+        }
+
+        .article-card h3 {
+            margin-bottom: 12px;
+            color: #4a7c9e;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .article-card p {
+            font-size: 14px;
+            color: #b0b0b0;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .article-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #0a66c2 0%, #084a8e 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 13px;
+            transition: all 0.3s;
+        }
+
+        .article-link:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #1a3a52 0%, #2d1b4e 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        .cta-section h2 {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .social-link {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            padding: 12px 24px;
+            border-radius: 4px;
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        .social-link:hover {
+            background: rgba(255,255,255,0.25);
+            transform: translateY(-2px);
+        }
+
+        footer {
+            background: #0d0d0d;
+            color: #808080;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 14px;
+            border-top: 1px solid #2a2a2a;
+        }
+
+        footer a {
+            color: #4a7c9e;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="logo">Binoy Jose</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="linkedin-articles.html">Articles</a></li>
+                <li><a href="youtube-articles.html">Videos</a></li>
+                <li><a href="protocols.html">Protocols</a></li>
+                <li><a href="applications.html">Applications</a></li>
+                <li><a href="tools.html">Technologies</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Articles</h1>
+            <p>156 published articles on AI agents, agentic architecture, blockchain, FinTech, and enterprise technology</p>
+        </div>
+    </section>
+
+    <!-- Articles Section -->
+    <section>
+        <h2>Featured Articles & Thought Leadership</h2>
+        <p class="section-subtitle">156+ published articles on AI agents, architecture, blockchain, and enterprise innovation</p>
+        <div class="articles-grid">
+            <!-- AI Agents & Orchestration -->
+            <div class="article-card">
+                <div class="article-header">
+                    <span class="linkedin-badge">in</span>
+                </div>
+                <h3>Deep AI Agent - BizFirstAi.com</h3>
+                <p>Comprehensive guide to building deep learning-powered autonomous agents with sophisticated reasoning capabilities.</p>
+                <a href="https://www.linkedin.com/pulse/deep-ai-agent-bizfirstaicom-binoy-jose-v5elc/" class="article-link" target="_blank">Read Article →</a>
+            </div>
+
+            <div class="article-card">
+                <div class="article-header">
+                    <span class="linkedin-badge">in</span>
+                </div>
+                <h3>How Do You Trust an AI Agent?</h3>
+                <p>Building trust mechanisms, verification systems, and transparency frameworks for autonomous agents.</p>
+                <a href="https://www.linkedin.com/in/binoy-jose/recent-activity/articles/" class="article-link" target="_blank">Read Article →</a>
+            </div>
+
+            <div class="article-card">
+                <div class="article-header">
+                    <span class="linkedin-badge">in</span>
+                </div>
+                <h3>A Practical Introduction to AI Agent Orchestration Patterns</h3>
+                <p>Essential patterns and best practices for orchestrating multiple agents in production at scale.</p>
+                <a href="https://www.linkedin.com/pulse/practical-introduction-ai-agent-orchestration-patterns-binoy-jose-vjtwc/" class="article-link" target="_blank">Read Article →</a>
+            </div>
+
+            <div class="article-card">
+                <div class="article-header">
+                    <span class="linkedin-badge">in</span>
+                </div>
+                <h3>Build and Discover Trustworthy AI Agents with OperateAI</h3>
+                <p>Creating decentralized AI identity, registering to discovery networks, certification, and marketplace integration.</p>
+                <a href="https://www.linkedin.com/pulse/build-discover-trustworthy-ai-agents-operateai-bizfirstai-binoy-jose-gvloc/" class="article-link" target="_blank">Read Article →</a>
+            </div>
+
+            <!-- Identity & Blockchain -->
+            <div class="article-card">
+                <div class="article-header">
+                    <span class="linkedin-badge">in</span>
+                </div>
+                <h3>Decentralized Identity and Verifiable Credentials</h3>
+                <p>DID specifications, verifiable credentials for nightclub admission, Accumulate solutions for identity management.</p>
+                <a href="https://www.linkedin.com/pulse/decentralized-identity-verifiable-credentials-binoy-jose-tszic/" class="article-link" target="_blank">Read Article →</a>
+            </div>
+
+            <div class="article-card">
+                <div class="article-header">
+                    <span class="linkedin-badge">in</span>
+                </div>
+                <h3>AI Identity for Agents</h3>
+                <p>Managing identity for autonomous agents, decentralized credentials, and agent-to-agent trust verification.</p>
+                <a href="https://www.linkedin.com/in/binoy-jose/recent-activity/articles/" class="article-link" target="_blank">Read Article →</a>
+            </div>
+
+            <!-- Architecture & Systems -->
+            <div class="article-card">
+                <div class="article-header">
+                    <span class="linkedin-badge">in</span>
+                </div>
+                <h3>Enterprise Architecture for AI Systems</h3>
+                <p>Designing scalable AI platforms, microservices for agents, infrastructure patterns at enterprise scale.</p>
+                <a href="https://www.linkedin.com/in/binoy-jose/recent-activity/articles/" class="article-link" target="_blank">Read Article →</a>
+            </div>
+
+            <div class="article-card">
+                <div class="article-header">
+                    <span class="linkedin-badge">in</span>
+                </div>
+                <h3>Agent Communication Protocol (ANCP)</h3>
+                <p>Technical specifications for agent-to-agent communication, protocol design, and implementation patterns.</p>
+                <a href="https://www.linkedin.com/in/binoy-jose/recent-activity/articles/" class="article-link" target="_blank">Read Article →</a>
+            </div>
+
+            <!-- FinTech & Blockchain -->
+            <div class="article-card">
+                <div class="article-header">
+                    <span class="linkedin-badge">in</span>
+                </div>
+                <h3>FinTech Innovation with Blockchain</h3>
+                <p>Payment systems, settlement infrastructure, DeFi protocols, and financial automation on blockchain.</p>
+                <a href="https://www.linkedin.com/in/binoy-jose/recent-activity/articles/" class="article-link" target="_blank">Read Article →</a>
+            </div>
+
+            <div class="article-card">
+                <div class="article-header">
+                    <span class="linkedin-badge">in</span>
+                </div>
+                <h3>Compliance & KYC/AML on Blockchain</h3>
+                <p>Automating regulatory compliance, Know Your Customer, Anti-Money Laundering on decentralized systems.</p>
+                <a href="https://www.linkedin.com/in/binoy-jose/recent-activity/articles/" class="article-link" target="_blank">Read Article →</a>
+            </div>
+
+            <!-- Innovation & Strategy -->
+            <div class="article-card">
+                <div class="article-header">
+                    <span class="linkedin-badge">in</span>
+                </div>
+                <h3>The Future of Autonomous Business</h3>
+                <p>How autonomous agents are transforming business processes, decision-making, and organizational structures.</p>
+                <a href="https://www.linkedin.com/in/binoy-jose/recent-activity/articles/" class="article-link" target="_blank">Read Article →</a>
+            </div>
+
+            <div class="article-card">
+                <div class="article-header">
+                    <span class="linkedin-badge">in</span>
+                </div>
+                <h3>Building Products in the Agentic Era</h3>
+                <p>Product strategy, go-to-market, and scaling considerations for AI-powered autonomous systems.</p>
+                <a href="https://www.linkedin.com/in/binoy-jose/recent-activity/articles/" class="article-link" target="_blank">Read Article →</a>
+            </div>
+
+            <div class="article-card">
+                <div class="article-header">
+                    <span class="linkedin-badge">in</span>
+                </div>
+                <h3>Observability & Monitoring for AI Systems</h3>
+                <p>Real-time monitoring, logging, tracing, and metrics collection for distributed autonomous systems.</p>
+                <a href="https://www.linkedin.com/in/binoy-jose/recent-activity/articles/" class="article-link" target="_blank">Read Article →</a>
+            </div>
+
+            <div class="article-card">
+                <div class="article-header">
+                    <span class="linkedin-icon">in</span>
+                    <h3>Blockchain & Smart Contracts</h3>
+                </div>
+                <p>Exploration of blockchain technology, smart contracts, DAOs, and decentralized application development.</p>
+                <a href="https://www.linkedin.com/in/binoy-jose/" class="article-link" target="_blank">View Articles on LinkedIn</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Connect & Collaborate</h2>
+        <p>All 156 articles and more insights available on LinkedIn. Follow for the latest thoughts on AI, technology, and innovation.</p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/binoy-jose/" class="social-link" target="_blank">Connect on LinkedIn</a>
+            <a href="index.html" class="social-link">Back to Home</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Binoy Jose. Architect and thought leader. | <a href="https://www.linkedin.com/in/binoy-jose/">LinkedIn</a></p>
+    </footer>
+</body>
+</html>

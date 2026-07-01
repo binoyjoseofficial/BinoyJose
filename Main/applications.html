@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Applications - Binoy Jose</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: #0d0d0d;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #1a0f2e 100%);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.7;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #1a0f2e 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 44px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        section h2 {
+            font-size: 36px;
+            margin-bottom: 50px;
+            text-align: center;
+            color: white;
+            font-weight: 700;
+        }
+
+        .applications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+            align-items: stretch;
+        }
+
+        .app-card {
+            background: #1a1a1a;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            border: 1px solid #2a2a2a;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .app-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+
+        .app-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 15px;
+        }
+
+        .app-card h3 {
+            font-size: 20px;
+            color: white;
+            font-weight: 700;
+            flex: 1;
+        }
+
+        .app-year {
+            background: #f0f4ff;
+            color: #0066cc;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+            margin-left: 10px;
+        }
+
+        .app-role {
+            background: transparent;
+            color: #4a7c9e;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: inline-block;
+            border: 1px solid #4a7c9e;
+            opacity: 0.8;
+        }
+
+        .app-card p {
+            color: #999;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .app-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        .tech-tag {
+            background: #0d0d0d;
+            color: #0066cc;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            border: 1px solid #e0e0e0;
+        }
+
+        .app-link {
+            display: inline-block;
+            margin-top: auto;
+            padding: 8px 14px;
+            background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 13px;
+            font-weight: 600;
+            transition: opacity 0.3s;
+        }
+
+        .app-link:hover {
+            opacity: 0.85;
+        }
+
+        .category-section {
+            margin-bottom: 60px;
+        }
+
+        .category-title {
+            font-size: 26px;
+            color: white;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #0066cc;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 16px;
+            opacity: 0.95;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #1a1a1a;
+            color: #0066cc;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #f0f0f0;
+        }
+
+        footer {
+            background: #0a0e27;
+            color: #999;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 15px;
+                font-size: 12px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+
+            section h2 {
+                font-size: 28px;
+            }
+
+            .applications-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .app-header {
+                flex-direction: column;
+            }
+
+            .app-year {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="logo">Binoy Jose</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="linkedin-articles.html">Articles</a></li>
+                <li><a href="youtube-articles.html">Videos</a></li>
+                <li><a href="protocols.html">Protocols</a></li>
+                <li><a href="applications.html">Applications</a></li>
+                <li><a href="tools.html">Technologies</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Applications & Projects</h1>
+            <p>Portfolio of applications and platforms built across AI, FinTech, blockchain, and enterprise domains.</p>
+        </div>
+    </section>
+
+    <!-- Applications Section -->
+    <section>
+        <!-- BizFirst Platform -->
+        <div class="category-section">
+            <h2 class="category-title">BizFirst Platform Suite</h2>
+            <div class="applications-grid">
+                <div class="app-card">
+                    <div class="app-header">
+                        <h3>BizFirstAi.com</h3>
+                    </div>
+                    <div class="app-role">Chief Architect & Executive Officer</div>
+                    <p>Gen 3 Agentic Platform enabling autonomous agents at scale with sophisticated orchestration, workflow management, and business automation capabilities.</p>
+                    <div class="app-tech">
+                        <span class="tech-tag">AI Agents</span>
+                        <span class="tech-tag">Orchestration</span>
+                        <span class="tech-tag">Workflow</span>
+                        <span class="tech-tag">Cloud</span>
+                    </div>
+                    <a href="https://bizfirstai.com" class="app-link" target="_blank">Visit Platform</a>
+                </div>
+
+                <div class="app-card">
+                    <div class="app-header">
+                        <h3>ancp.BizFirstAi.com</h3>
+                    </div>
+                    <div class="app-role">Lead Architect</div>
+                    <p>Advanced implementation of ANCP protocol enabling Agent-to-Agent communication at scale. Builds on the Agentic Node Communication Protocol for distributed agent networks.</p>
+                    <div class="app-tech">
+                        <span class="tech-tag">ANCP Protocol</span>
+                        <span class="tech-tag">A2A Communication</span>
+                        <span class="tech-tag">Distributed Systems</span>
+                    </div>
+                    <a href="https://ancp.bizfirstai.com" class="app-link" target="_blank">Visit Platform</a>
+                </div>
+
+                <div class="app-card">
+                    <div class="app-header">
+                        <h3>BizFirstFi.com</h3>
+                    </div>
+                    <div class="app-role">Lead Architect</div>
+                    <p>FinTech products suite including payment infrastructure, settlement systems, and financial automation. Enterprise-grade compliance and security.</p>
+                    <div class="app-tech">
+                        <span class="tech-tag">FinTech</span>
+                        <span class="tech-tag">Payments</span>
+                        <span class="tech-tag">Compliance</span>
+                    </div>
+                    <a href="https://bizfirstfi.com" class="app-link" target="_blank">Visit Platform</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Operate Platform -->
+        <div class="category-section">
+            <h2 class="category-title">Operate Suite - Decentralized Systems</h2>
+            <div class="applications-grid">
+                <div class="app-card">
+                    <div class="app-header">
+                        <h3>OperateID.com</h3>
+                    </div>
+                    <div class="app-role">Lead Architect</div>
+                    <p>Identity platform with built-in software capabilities. Self-sovereign identity for users and agents with programmable features and complete user control.</p>
+                    <div class="app-tech">
+                        <span class="tech-tag">Identity</span>
+                        <span class="tech-tag">Self-Sovereign</span>
+                        <span class="tech-tag">Blockchain</span>
+                    </div>
+                    <a href="https://operateid.com" class="app-link" target="_blank">Visit Platform</a>
+                </div>
+
+                <div class="app-card">
+                    <div class="app-header">
+                        <h3>OperateDID.com</h3>
+                    </div>
+                    <div class="app-role">Lead Architect</div>
+                    <p>Decentralized identity protocol for autonomous agents. W3C DID-compliant with verifiable credentials and multi-signature support for agent identity and trust.</p>
+                    <div class="app-tech">
+                        <span class="tech-tag">DID</span>
+                        <span class="tech-tag">W3C Standard</span>
+                        <span class="tech-tag">Agents</span>
+                    </div>
+                    <a href="https://operatedid.com" class="app-link" target="_blank">Visit Platform</a>
+                </div>
+
+                <div class="app-card">
+                    <div class="app-header">
+                        <h3>OperateDAO.com</h3>
+                    </div>
+                    <div class="app-role">Lead Architect</div>
+                    <p>Decentralized organization and marketplace infrastructure. Enables autonomous organizations with governance mechanisms and multi-party coordination.</p>
+                    <div class="app-tech">
+                        <span class="tech-tag">DAO</span>
+                        <span class="tech-tag">Governance</span>
+                        <span class="tech-tag">Marketplace</span>
+                    </div>
+                    <a href="https://operatedao.com" class="app-link" target="_blank">Visit Platform</a>
+                </div>
+
+                <div class="app-card">
+                    <div class="app-header">
+                        <h3>OperateCrypto.com</h3>
+                    </div>
+                    <div class="app-role">Principal Architect</div>
+                    <p>Web3 operating system and secure vault infrastructure. Cryptographic asset management with multi-signature security and automated workflows.</p>
+                    <div class="app-tech">
+                        <span class="tech-tag">Crypto</span>
+                        <span class="tech-tag">Vault</span>
+                        <span class="tech-tag">Web3</span>
+                    </div>
+                    <a href="https://operatecrypto.com" class="app-link" target="_blank">Visit Platform</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Products -->
+        <div class="category-section">
+            <h2 class="category-title">Additional Products</h2>
+            <div class="applications-grid">
+                <div class="app-card">
+                    <div class="app-header">
+                        <h3>Qoboto.com</h3>
+                    </div>
+                    <div class="app-role">Lead Architect</div>
+                    <p>Social platform where users own their data and control their identity. Privacy-first architecture with user-controlled data sovereignty.</p>
+                    <div class="app-tech">
+                        <span class="tech-tag">Social</span>
+                        <span class="tech-tag">Privacy</span>
+                        <span class="tech-tag">Data Control</span>
+                    </div>
+                    <a href="https://qoboto.com" class="app-link" target="_blank">Visit Platform</a>
+                </div>
+
+                <div class="app-card">
+                    <div class="app-header">
+                        <h3>BankOnLedger.com</h3>
+                    </div>
+                    <div class="app-role">Lead Architect</div>
+                    <p>Personal banking platform under user control. Account aggregation, payments, and financial management with complete user sovereignty over banking services.</p>
+                    <div class="app-tech">
+                        <span class="tech-tag">Banking</span>
+                        <span class="tech-tag">FinTech</span>
+                        <span class="tech-tag">Control</span>
+                    </div>
+                </div>
+
+                <div class="app-card">
+                    <div class="app-header">
+                        <h3>LedgerDocument.com</h3>
+                    </div>
+                    <div class="app-role">Lead Architect</div>
+                    <p>Alternative to DocuSign where you own the data and system. Document signing, verification, and management on user-controlled infrastructure.</p>
+                    <div class="app-tech">
+                        <span class="tech-tag">E-Signature</span>
+                        <span class="tech-tag">Document</span>
+                        <span class="tech-tag">Control</span>
+                    </div>
+                </div>
+
+                <div class="app-card">
+                    <div class="app-header">
+                        <h3>KycOnChain.com</h3>
+                    </div>
+                    <div class="app-role">Lead Architect</div>
+                    <p>Know Your Customer/Business/Agent on blockchain. On-chain KYC verification and compliance with verifiable credentials and audit trails.</p>
+                    <div class="app-tech">
+                        <span class="tech-tag">KYC</span>
+                        <span class="tech-tag">Compliance</span>
+                        <span class="tech-tag">Blockchain</span>
+                    </div>
+                </div>
+
+                <div class="app-card">
+                    <div class="app-header">
+                        <h3>AmlOnChain.com</h3>
+                    </div>
+                    <div class="app-role">Lead Architect</div>
+                    <p>Anti-Money Laundering certificate issuance on blockchain. Compliance automation and certificate generation for regulatory requirements.</p>
+                    <div class="app-tech">
+                        <span class="tech-tag">AML</span>
+                        <span class="tech-tag">Compliance</span>
+                        <span class="tech-tag">Blockchain</span>
+                    </div>
+                </div>
+
+                <div class="app-card">
+                    <div class="app-header">
+                        <h3>PenguinAiPlatform.com</h3>
+                    </div>
+                    <div class="app-role">Strategic Advisor</div>
+                    <p>AI platform for M&A (Mergers & Acquisitions). Leveraging AI to streamline due diligence and deal analysis for investment decisions.</p>
+                    <div class="app-tech">
+                        <span class="tech-tag">AI</span>
+                        <span class="tech-tag">M&A</span>
+                        <span class="tech-tag">FinTech</span>
+                        <span class="tech-tag">Analytics</span>
+                    </div>
+                    <a href="https://penguinaialternatives.com" class="app-link" target="_blank">Visit Platform</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enterprise Projects -->
+        <div class="category-section">
+            <h2 class="category-title">Enterprise Projects</h2>
+            <div class="applications-grid">
+                <div class="app-card">
+                    <div class="app-header">
+                        <h3>Enterprise Integration Platform</h3>
+                    <div class="app-role">Solutions Architect → Head of Account Management</div>
+                    <p>Large-scale enterprise integration and BPM platform. Managed $50M+ portfolio with 600+ team members. Delivery of complex integration solutions for Fortune 500 clients.</p>
+                    <div class="app-tech">
+                        <span class="tech-tag">Enterprise</span>
+                        <span class="tech-tag">Integration</span>
+                        <span class="tech-tag">BPM</span>
+                    </div>
+                </div>
+
+                <div class="app-card">
+                    <div class="app-header">
+                        <h3>Insurance Claims Platform</h3>
+                    <div class="app-role">Account Management & Delivery Lead</div>
+                    <p>Mission-critical insurance claims processing platform. Key account with top-tier insurer managing complex workflows and compliance requirements.</p>
+                    <div class="app-tech">
+                        <span class="tech-tag">Insurance</span>
+                        <span class="tech-tag">Claims</span>
+                        <span class="tech-tag">Workflow</span>
+                    </div>
+                </div>
+
+                <div class="app-card">
+                    <div class="app-header">
+                        <h3>Financial Services Systems</h3>
+                    <div class="app-role">Software Developer → Solutions Architect</div>
+                    <p>Core financial systems development for payment processing and settlement. Worked across multiple layers from infrastructure to application design.</p>
+                    <div class="app-tech">
+                        <span class="tech-tag">FinTech</span>
+                        <span class="tech-tag">Payments</span>
+                        <span class="tech-tag">Systems</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>View More</h2>
+        <p>Explore protocols, technologies, and other work areas.</p>
+        <a href="index.html" class="btn">Back to Home</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Binoy Jose. Builder of applications and platforms. | <a href="https://www.linkedin.com/in/binoy-jose/">LinkedIn</a></p>
+    </footer>
+</body>
+</html>

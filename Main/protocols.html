@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocols - Binoy Jose</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: #0d0d0d;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #1a0f2e 100%);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.7;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a 0%, #1a0f2e 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 44px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        section h2 {
+            font-size: 36px;
+            margin-bottom: 50px;
+            text-align: center;
+            color: white;
+            font-weight: 700;
+        }
+
+        .protocols-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .protocol-card {
+            background: #1a1a1a;
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            border-top: 4px solid #0066cc;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .protocol-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+
+        .protocol-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: white;
+            font-weight: 700;
+        }
+
+        .protocol-badge {
+            display: inline-block;
+            background: rgba(0, 217, 255, 0.1);
+            color: #4a7c9e;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .protocol-card p {
+            color: #999;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .protocol-details {
+            background: #0d0d0d;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .protocol-details h5 {
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .protocol-details p {
+            font-size: 14px;
+            color: #b0b0b0;
+            margin-bottom: 0;
+        }
+
+        .protocol-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .protocol-link {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 16px;
+            background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: opacity 0.3s;
+            gap: 10px;
+        }
+
+        .protocol-link:hover {
+            opacity: 0.85;
+        }
+
+        .protocol-link span {
+            font-size: 16px;
+        }
+
+        .protocol-secondary {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 14px;
+            background: rgba(0, 217, 255, 0.1);
+            color: #4a7c9e;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 13px;
+            border: 1px solid #d0deff;
+            transition: all 0.3s;
+            gap: 8px;
+        }
+
+        .protocol-secondary:hover {
+            background: #e8eeff;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #0066cc 0%, #0052a3 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 16px;
+            opacity: 0.95;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #1a1a1a;
+            color: #4a7c9e;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #f0f0f0;
+        }
+
+        footer {
+            background: #0a0e27;
+            color: #999;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #4a7c9e;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 15px;
+                font-size: 12px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+
+            section h2 {
+                font-size: 28px;
+            }
+
+            .protocols-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <header>
+        <nav>
+            <div class="logo">Binoy Jose</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="experience.html">Experience</a></li>
+                <li><a href="linkedin-articles.html">Articles</a></li>
+                <li><a href="youtube-articles.html">Videos</a></li>
+                <li><a href="protocols.html">Protocols</a></li>
+                <li><a href="applications.html">Applications</a></li>
+                <li><a href="tools.html">Technologies</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Leading Protocol Development</h1>
+            <p>Designing and architecting next-generation protocols for secure communication, decentralized identity, and autonomous agent systems.</p>
+        </div>
+    </section>
+
+    <!-- Protocols Section -->
+    <section>
+        <h2>Protocols & Standards</h2>
+        <div class="protocols-grid">
+            <!-- Protocol 1: ANCP -->
+            <div class="protocol-card">
+                <h3>ANCP</h3>
+                <p style="color: #4a7c9e; font-weight: 600; font-size: 13px; margin-bottom: 15px;">Key Architect</p>
+                <div class="protocol-badge">Agent-to-Agent Communication</div>
+                <p>The Agentic Node Communication Protocol enables seamless, secure communication between autonomous agents in distributed networks. ANCP defines how agents discover, authenticate, and communicate with each other at scale.</p>
+                <div class="protocol-details">
+                    <h5>Key Features</h5>
+                    <p>Standardized messaging format, agent discovery, cryptographic verification, load balancing, and failover mechanisms for resilient agent networks.</p>
+                </div>
+                <div class="protocol-details">
+                    <h5>Use Cases</h5>
+                    <p>Multi-agent orchestration, distributed decision-making systems, agent-to-agent workflow coordination, and autonomous system networks.</p>
+                </div>
+                <div class="protocol-links">
+                    <a href="https://docs.bizfirstai.com/WebSites/ANCP/Guide1_Introduction/" class="protocol-link" target="_blank">
+                        <span>→</span> Read ANCP Documentation
+                    </a>
+                    <a href="http://ancp.bizfirstai.com/" class="protocol-secondary" target="_blank">
+                        <span>→</span> Live Implementation
+                    </a>
+                </div>
+            </div>
+
+            <!-- Protocol 2: OperateDID -->
+            <div class="protocol-card">
+                <h3>OperateDID</h3>
+                <p style="color: #4a7c9e; font-weight: 600; font-size: 13px; margin-bottom: 15px;">Key Architect</p>
+                <div class="protocol-badge">Decentralized Identity for Agents</div>
+                <p>OperateDID is an identity protocol specifically designed for autonomous agents. It enables agents to establish cryptographic identity, prove authenticity, and participate in trust networks without requiring centralized authorities.</p>
+                <div class="protocol-details">
+                    <h5>Key Features</h5>
+                    <p>W3C DID compliance, verifiable credentials, self-sovereign identity for agents, multi-signature support, and blockchain integration.</p>
+                </div>
+                <div class="protocol-details">
+                    <h5>Use Cases</h5>
+                    <p>Agent authentication, trust establishment between agents, identity verification for autonomous systems, and agent reputation management.</p>
+                </div>
+                <div class="protocol-links">
+                    <a href="https://sunstream.operatedid.com/" class="protocol-link" target="_blank">
+                        <span>→</span> OperateDID Implementation
+                    </a>
+                    <a href="https://sunstream.operatedid.com/.well-known/did.json" class="protocol-secondary" target="_blank">
+                        <span>→</span> DID Example
+                    </a>
+                </div>
+            </div>
+
+            <!-- Protocol 3: Certen.io -->
+            <div class="protocol-card">
+                <h3>Certen.io</h3>
+                <p style="color: #4a7c9e; font-weight: 600; font-size: 13px; margin-bottom: 15px;">Key Architect</p>
+                <div class="protocol-badge">Cybersecurity & Governance</div>
+                <p>Certen.io protocol provides multi-signature technology and blockchain-based governance mechanisms for secure protocol execution and organizational decision-making on distributed networks.</p>
+                <div class="protocol-details">
+                    <h5>Key Features</h5>
+                    <p>Multi-signature verification, threshold cryptography, blockchain governance, compliance automation, and audit trails.</p>
+                </div>
+                <div class="protocol-details">
+                    <h5>Use Cases</h5>
+                    <p>Protocol governance, multi-party approval workflows, compliance verification, and secure collective decision-making in decentralized systems.</p>
+                </div>
+                <div class="protocol-links">
+                    <a href="Certen_Technical_Whitepaper.pdf" class="protocol-link" target="_blank">
+                        <span>→</span> Technical Whitepaper (Local)
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <h2>Explore More</h2>
+        <p>Learn more about how these protocols power next-generation autonomous systems.</p>
+        <a href="index.html" class="btn">Back to Home</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Binoy Jose. Protocol architect and builder of autonomous systems. | <a href="https://www.linkedin.com/in/binoy-jose/">LinkedIn</a></p>
+    </footer>
+</body>
+</html>
